@@ -121,7 +121,8 @@ if (role == role_ping_out)
     else
     {
       // Grab the response, compare, and send to debugging spew
-      uint8_t len = radio.getDynamicPayloadSize();
+      uint8_t len = 0;
+      len = radio.getDynamicPayloadSize();
       radio.read( receive_payload, len );
 
       // Put a zero at the end for easy printing
@@ -150,7 +151,7 @@ if (role == role_ping_out)
     if ( radio.available() )
     {
       // Dump the payloads until we've gotten everything
-      uint8_t len;
+      uint8_t len = 0;
 
       while (radio.available())
       {
