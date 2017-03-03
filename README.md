@@ -1,4 +1,8 @@
+
 # Arduino & Raspberry Pi driver for nRF24L01(+) 2.4GHz Wireless Transceiver
+
+*** I no longer maintain this fork ...
+*** Pls use the latest fork from TMRh20 https://github.com/TMRh20/RF24
 
 Design Goals: 
 
