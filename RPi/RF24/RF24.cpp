@@ -906,13 +906,13 @@ void RF24::openReadingPipe(uint8_t child, uint64_t address)
 
 /****************************************************************************/
 
-void RF24::setAddressWidth(uint8_t a_width){
-
-	if(a_width -= 2){
-		write_register(SETUP_AW,a_width%4);
-		addr_width = (a_width%4) + 2;
-	}
-
+void RF24::setAddressWidth(uint8_t a_width)
+{
+  // 2 bytes width is described as invalid in manual, but it works and is used in sniffer example application
+  if (a_width >= 2 && a_width <= 5){
+    write_register(SETUP_AW,a_width - 2);
+    addr_width = a_width;
+  }
 }
 
 /****************************************************************************/
